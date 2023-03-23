@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { z } from 'zod';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import moment from 'moment/moment';
-import { ToggleButton, ToggleButtonGroup } from '@mui/material';
+import { ToggleButton } from '@mui/material';
 import { useFormContext } from 'react-hook-form';
 import { Form } from '../general/form';
 import { Expense } from '../../models';
@@ -148,7 +148,7 @@ const frequencyChoices = [
 ];
 
 function RecurringSection() {
-  const { watch, getValues } = useFormContext();
+  const { watch } = useFormContext();
   const recurringChecked = watch('recurring');
   const duration = watch('duration');
 
