@@ -3,6 +3,7 @@ import { Button } from '@mui/material';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { format } from 'mathjs';
+import { isUndefined } from 'lodash';
 import { FinanceUser } from '../../../models';
 import { ExpenseStore, UserStore } from '../../../store';
 import { ModalToolkit } from '../../general/components';
@@ -15,7 +16,9 @@ export function UserPanel() {
   const { openModal } = ModalToolkit.useModalContext();
   const dispatch = useDispatch();
 
-  const handleEditUser = async () => {
+  const handleEditUser = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     const userdetails = userState.userDetails;
     const financeUser = new FinanceUser(userdetails, user.sub);
 
@@ -43,7 +46,7 @@ export function UserPanel() {
         className={futureNetWorth < 0 ? 'tw-text-red-600 tw-font-semibold' : ''}
       >
         {'Total (Future) Net Worth: '}$
-        {format(futureNetWorth, { notation: 'fixed', precision: 2 })}
+        {!isUndefined(futureNetWorth) ? futureNetWorth : '0.00'}
       </p>
       <p
         className={
@@ -52,7 +55,7 @@ export function UserPanel() {
       >
         <strong>
           {'Current Net Worth: '}$
-          {format(currentNetWorth, { notation: 'fixed', precision: 2 })}
+          {!isUndefined(currentNetWorth) ? currentNetWorth : '0.00'}
         </strong>
       </p>
       <Button variant="outlined" onClick={handleEditUser}>
@@ -86,7 +89,7 @@ const getCurrentNetWorth = (userState, expenseState) => {
       }
     });
   }
-  return netWorth;
+  return format(netWorth, { notation: 'fixed', precision: 2 });
 };
 
 const getFutureNetWorth = (userState, expenseState) => {
@@ -108,5 +111,5 @@ const getFutureNetWorth = (userState, expenseState) => {
       }
     });
   }
-  return netWorth;
+  return format(netWorth, { notation: 'fixed', precision: 2 });
 };

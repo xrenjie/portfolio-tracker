@@ -7,12 +7,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 export function FormComponent({
   defaultValues,
   children,
+  onSubmit,
   validationMode = 'onBlur',
   reValidateMode = 'onChange',
   validationSchema,
   ...props
 }) {
-  const methods = useForm({
+  const { handleSubmit, ...methods } = useForm({
     mode: validationMode, // default onchange
     defaultValues,
     reValidateMode,
@@ -22,8 +23,14 @@ export function FormComponent({
 
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-    <form className="tw-w-full tw-h-full" {...props}>
-      <FormProvider {...methods}>{children}</FormProvider>
+    <form
+      className="tw-w-full tw-h-full"
+      onSubmit={handleSubmit(onSubmit)}
+      {...props}
+    >
+      <FormProvider handleSubmit={handleSubmit} {...methods}>
+        {children}
+      </FormProvider>
     </form>
   );
 }

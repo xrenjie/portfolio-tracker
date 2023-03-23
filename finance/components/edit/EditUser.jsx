@@ -60,7 +60,7 @@ export function EditUser({ openerProps, user, title }) {
             </Section>
           </Body>
         }
-        footer={<Form.Button label="Submit" name="asdf" type="submit" />}
+        footer={<Form.SubmitButton label="Submit" name="asdf" type="submit" />}
       />
     </Form.Form>
   );

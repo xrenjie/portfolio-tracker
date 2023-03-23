@@ -69,6 +69,7 @@ export function EditExpense({ openerProps, expense, title }) {
     <Form.Form
       validationSchema={validationSchema}
       defaultValues={defaultValues}
+      onSubmit={onSubmit}
     >
       <Modal.ModalLayout
         header={title}
@@ -127,14 +128,7 @@ export function EditExpense({ openerProps, expense, title }) {
             </Section>
           </Body>
         }
-        footer={
-          <Form.SubmitButton
-            onSubmit={onSubmit}
-            label="Submit"
-            name="asdf"
-            type="submit"
-          />
-        }
+        footer={<Form.SubmitButton label="Submit" name="asdf" type="submit" />}
       />
     </Form.Form>
   );
