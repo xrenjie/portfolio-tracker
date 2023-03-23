@@ -1,0 +1,55 @@
+auth0:
+  audience: ${PORTFOLIO_TRACKER_AUDIENCE}
+spring:
+  application:
+    name: main-web-server
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+  datasource:
+    url: ${PORTFOLIO_TRACKER_SQL_URL}
+    username: ${PORTFOLIO_TRACKER_SQL_USERNAME}
+    password: ${PORTFOLIO_TRACKER_SQL_PASSWORD}
+    driverClassName: org.postgresql.Driver
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${PORTFOLIO_TRACKER_ISSUER_URI}
+          jwk-set-uri: ${PORTFOLIO_TRACKER_JWK_SET_URI}
+  sql:
+    init:
+      platform: postgres
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+signingKey: ${PORTFOLIO_TRACKER_SIGNING_KEY}
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type: TRACE
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.springframework.jdbc.core.JdbcTemplate: DEBUG
+    org.springframework.jdbc.core.StatementCreatorUtils: TRACE
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: always
+    include-exception: false
+  port: 8080   # HTTP (Tomcat) port
+
+
+security.ignored: true
+security.basic.enabled: false
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/

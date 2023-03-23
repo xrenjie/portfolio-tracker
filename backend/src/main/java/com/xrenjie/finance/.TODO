@@ -1,0 +1,52 @@
+- Folder Done
+    - FolderController
+    - FolderService
+
+- Image Semi Done
+    - ImageController
+    - ImageService
+    - Sub-Image types
+
+- UserGroup Done
+    - UserGroupController
+    - UserGroupService
+
+
+
+Add analytics
+- specify currency
+    - set default currency
+- Track spending
+    - track recurring expenses // URGENT
+        - frequency, number of times
+        - recurring expenses microservice
+- Track income
+- User enters how much they want to save per month or until a certain date
+- Do budgeting (decrease expenses, mark expenses as non-essential or essential)
+- Track taxes
+- Track savings
+- Track investments
+- Track loans
+- Track credit cards
+- Track insurance
+- Track retirement
+- Track net worth
+
+Add a way to track your net worth
+- Track your assets
+- Track your liabilities
+- Track your net worth
+- Track your net worth over time
+
+
+Instead of name and description,
+make optional name and description
+Add Category, custom category tags
+
+
+
+
+- tracking stocks:
+stock name, volume, cost, date, buy or sell
+
+- add another line in the statistics chart
