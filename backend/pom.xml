@@ -15,6 +15,7 @@
 	<description>finance</description>
 	<properties>
 		<java.version>17</java.version>
+		<start-class>com.xrenjie.finance.FinanceApplication</start-class>
 	</properties>
 	<dependencies>
 
