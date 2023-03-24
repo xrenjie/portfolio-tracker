@@ -25,7 +25,7 @@ module.exports = {
       },
     ],
     'require-jsdoc': 0,
-    'prettier/prettier': 'error',
+    'prettier/prettier': 0,
     'react/react-in-jsx-scope': 0,
     'react/jsx-props-no-spreading': 0,
     'no-param-reassign': 0,
