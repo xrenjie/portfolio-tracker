@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx } from 'theme-ui';

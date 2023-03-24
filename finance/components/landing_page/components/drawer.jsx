@@ -1,6 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, Box } from 'theme-ui';
+// eslint-disable-next-line no-unused-vars
 import React, { Fragment } from 'react';
 import RcDrawer from 'rc-drawer';
 

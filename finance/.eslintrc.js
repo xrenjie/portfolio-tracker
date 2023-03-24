@@ -31,5 +31,7 @@ module.exports = {
     'no-param-reassign': 0,
     'no-use-before-define': 0,
     'react/no-unknown-property': 0,
+    'react/jsx-filename-extension': 0,
+    'react/no-array-index-key': 0,
   },
 };

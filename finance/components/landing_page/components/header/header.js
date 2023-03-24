@@ -5,11 +5,10 @@ import { useState } from 'react';
 import Sticky from 'react-stickynode';
 import Link from 'next/link';
 import { DrawerProvider } from '../../contexts/drawer/drawer-provider';
-import { NavLink } from '../link';
 import Logo from '../logo';
 import NavbarDrawer from './navbar-drawer';
 
-import menuItems from './header.data';
+// import menuItems from './header.data';
 
 export default function Header() {
   const [state, setState] = useState({
@@ -17,9 +16,11 @@ export default function Header() {
     isSticky: false,
   });
   const handleStateChange = (status) => {
-    status.status === Sticky.STATUS_FIXED
-      ? setState({ ...state, isSticky: true })
-      : setState({ ...state, isSticky: false });
+    if (status.status === Sticky.STATUS_FIXED) {
+      setState({ ...state, isSticky: true });
+    } else {
+      setState({ ...state, isSticky: false });
+    }
   };
 
   return (

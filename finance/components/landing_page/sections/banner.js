@@ -1,22 +1,22 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { useState } from 'react';
+// import { useState } from 'react';
 import { rgba } from 'polished';
 import { jsx, Flex, Container, Heading, Text, Button } from 'theme-ui';
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Image from '../components/image';
-import Play from '../components/icons/play';
+// import Play from '../components/icons/play';
 import banner from '../assets/images/banner.png';
 // import ModalVideo from 'react-modal-video';
-const ModalVideo = dynamic(() => import('react-modal-video'), { ssr: false });
+// const ModalVideo = dynamic(() => import('react-modal-video'), { ssr: false });
 
 function Banner() {
-  const [videoOpen, setVideoOpen] = useState(false);
-  const handleClick = (e) => {
-    e.preventDefault();
-    setVideoOpen(true);
-  };
+  // const [videoOpen, setVideoOpen] = useState(false);
+  // const handleClick = (e) => {
+  //   e.preventDefault();
+  //   setVideoOpen(true);
+  // };
   return (
     <section id="home" sx={styles.section}>
       <Container sx={styles.container}>

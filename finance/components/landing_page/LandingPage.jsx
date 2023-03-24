@@ -5,12 +5,12 @@ import SEO from './components/seo';
 import Layout from './components/layout';
 import Banner from './sections/banner';
 // import Faq from './sections/faq';
-import Testimonials from './sections/testimonials';
-import Security from './sections/security';
-import Addons from './sections/addons';
-import MobileApp from './sections/mobile-app';
-import Dashboard from './sections/dashboard';
-import UltimateFeatures from './sections/ultimate-features';
+// import Testimonials from './sections/testimonials';
+// import Security from './sections/security';
+// import Addons from './sections/addons';
+// import MobileApp from './sections/mobile-app';
+// import Dashboard from './sections/dashboard';
+// import UltimateFeatures from './sections/ultimate-features';
 
 export function LandingPage() {
   const [domLoaded, setDomLoaded] = useState(false);

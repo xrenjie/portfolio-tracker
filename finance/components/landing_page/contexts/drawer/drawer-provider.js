@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useMemo, useReducer } from 'react';
 import { DrawerContext } from './drawer-context';
 
 const initialState = {
@@ -18,9 +18,8 @@ function reducer(state, action) {
 }
 export function DrawerProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const value = useMemo(() => ({ state, dispatch }), [state, dispatch]);
   return (
-    <DrawerContext.Provider value={{ state, dispatch }}>
-      {children}
-    </DrawerContext.Provider>
+    <DrawerContext.Provider value={value}>{children}</DrawerContext.Provider>
   );
 }

@@ -45,6 +45,7 @@ export default function SEO({
     <Head>
       <title>{title}</title>
       {metaData.map(({ name, content }, i) => (
+        // eslint-disable-next-line react/no-array-index-key
         <meta key={i} name={name} content={content} />
       ))}
     </Head>

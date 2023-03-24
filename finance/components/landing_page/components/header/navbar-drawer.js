@@ -32,7 +32,7 @@ function NavbarDrawer({ isSticky }) {
       open={state?.isOpen}
       toggleHandler={toggleHandler}
       closeButton={
-        <button sx={styles.closeButton}>
+        <button type="button" sx={styles.closeButton}>
           <Image src={close} alt="close" />
         </button>
       }

@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, Box, Container } from 'theme-ui';
+import { jsx, Container } from 'theme-ui';
 import Slider from 'react-slick';
 import { rgba } from 'polished';
 import Testimonial from '../components/cards/testimonial';

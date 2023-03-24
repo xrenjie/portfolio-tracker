@@ -20,7 +20,7 @@ const styles = {
     fontSize: [1, null, null, null, 2],
     lineHeight: 1,
     svg: {
-      mr: ['7px', , null, null, '12px'],
+      mr: ['7px', null, null, null, '12px'],
       height: 20,
       width: 20,
     },
