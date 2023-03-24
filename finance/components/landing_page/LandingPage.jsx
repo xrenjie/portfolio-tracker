@@ -12,6 +12,11 @@ import Banner from './sections/banner';
 // import Dashboard from './sections/dashboard';
 // import UltimateFeatures from './sections/ultimate-features';
 
+import 'rc-tabs/assets/index.css';
+import 'rc-drawer/assets/index.css';
+// import './assets/css/react-slick.css';
+import 'react-modal-video/css/modal-video.min.css';
+
 export function LandingPage() {
   const [domLoaded, setDomLoaded] = useState(false);
 
@@ -24,8 +29,8 @@ export function LandingPage() {
       <ThemeProvider theme={theme}>
         <Layout>
           <SEO
-            title="CRM Software Landing"
-            description="Collection of free top of the line startup landing templates built using react/ next js. Free to download, simply edit and deploy! Updated weekly!"
+            title="Pennywise - Free portfolio tracking and management"
+            description="Looking for a reliable tool to help manage your personal finances and investments? Our all-in-one finance tracker and investment advisor is here to help. With personalized insights and easy-to-use tools, you can take control of your financial future and make smart decisions that will help you succeed. Start tracking and investing today!"
           />
           <Banner />
           {/* <Testimonials /> */}

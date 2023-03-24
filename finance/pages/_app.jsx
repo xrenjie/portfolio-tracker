@@ -3,42 +3,27 @@
 import React from 'react';
 import { UserProvider, useUser } from '@auth0/nextjs-auth0/client';
 import { Provider } from 'react-redux';
-import {
-  createTheme,
-  ThemeProvider,
-  StyledEngineProvider,
-} from '@mui/material/styles';
+import { StyledEngineProvider } from '@mui/material/styles';
+import { ThemeProvider } from 'theme-ui';
 import { SnackbarProvider } from 'notistack';
 import { ReduxStore } from '../store';
 import InitRedux from '../helper_components/InitRedux';
 import '../styles/globals.css';
 import { LandingPage, ModalToolkit, NavbarLayout } from '../components';
 
-import 'rc-tabs/assets/index.css';
-import 'rc-drawer/assets/index.css';
+// import 'rc-tabs/assets/index.css';
+// import 'rc-drawer/assets/index.css';
 import '../components/landing_page/assets/css/react-slick.css';
-import 'react-modal-video/css/modal-video.min.css';
+import theme from '../components/landing_page/theme';
+// import 'react-modal-video/css/modal-video.min.css';
 
 export default function App(props) {
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: '#1976d2',
-      },
-      secondary: {
-        main: '#dc004e',
-      },
-    },
-  });
-
   return (
     <UserProvider>
       <Provider store={ReduxStore}>
-        <ThemeProvider theme={theme}>
-          <GlobalCssPriority>
-            <LoginCheck {...props} />
-          </GlobalCssPriority>
-        </ThemeProvider>
+        {/* <ThemeProvider theme={theme}> */}
+        <LoginCheck {...props} />
+        {/* </ThemeProvider> */}
       </Provider>
     </UserProvider>
   );
@@ -47,6 +32,7 @@ export default function App(props) {
 function LoginCheck({ Component, pageProps }) {
   const { user } = useUser();
   return user ? (
+    // <GlobalCssPriority>
     <InitRedux>
       <ModalToolkit.ModalProvider>
         <NavbarLayout>
@@ -56,6 +42,7 @@ function LoginCheck({ Component, pageProps }) {
       </ModalToolkit.ModalProvider>
     </InitRedux>
   ) : (
+    // </GlobalCssPriority>
     <LandingPage />
   );
 }

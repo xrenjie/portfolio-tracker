@@ -55,7 +55,7 @@ export default function InitRedux({ children }) {
         dispatch(ExpenseStore.actions.FETCH_EXPENSES());
       }
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
