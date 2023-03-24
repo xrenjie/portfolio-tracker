@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "jsxImportSource": "theme-ui" // or "@theme-ui/core"
+    // ... the rest of your compilerOptions redacted for brevity
+  }
+}

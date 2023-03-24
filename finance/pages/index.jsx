@@ -14,16 +14,8 @@ export default function Home() {
         <title>{process.env.NEXT_PUBLIC_APPNAME}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {user ? <ExpenseDashboard /> : <HomeNoAuth />}
+      <ExpenseDashboard />
     </>
-  );
-}
-
-function HomeNoAuth() {
-  return (
-    <div>
-      <h1>Home</h1>
-    </div>
   );
 }
 

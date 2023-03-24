@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { UserProvider } from '@auth0/nextjs-auth0/client';
+import { UserProvider, useUser } from '@auth0/nextjs-auth0/client';
 import { Provider } from 'react-redux';
 import {
   createTheme,
@@ -12,9 +12,14 @@ import { SnackbarProvider } from 'notistack';
 import { ReduxStore } from '../store';
 import InitRedux from '../helper_components/InitRedux';
 import '../styles/globals.css';
-import { ModalToolkit, NavbarLayout } from '../components';
+import { LandingPage, ModalToolkit, NavbarLayout } from '../components';
 
-export default function App({ Component, pageProps }) {
+import 'rc-tabs/assets/index.css';
+import 'rc-drawer/assets/index.css';
+import '../components/landing_page/assets/css/react-slick.css';
+import 'react-modal-video/css/modal-video.min.css';
+
+export default function App(props) {
   const theme = createTheme({
     palette: {
       primary: {
@@ -31,18 +36,27 @@ export default function App({ Component, pageProps }) {
       <Provider store={ReduxStore}>
         <ThemeProvider theme={theme}>
           <GlobalCssPriority>
-            <InitRedux>
-              <ModalToolkit.ModalProvider>
-                <NavbarLayout>
-                  <SnackbarProvider />
-                  <Component {...pageProps} />
-                </NavbarLayout>
-              </ModalToolkit.ModalProvider>
-            </InitRedux>
+            <LoginCheck {...props} />
           </GlobalCssPriority>
         </ThemeProvider>
       </Provider>
     </UserProvider>
+  );
+}
+
+function LoginCheck({ Component, pageProps }) {
+  const { user } = useUser();
+  return user ? (
+    <InitRedux>
+      <ModalToolkit.ModalProvider>
+        <NavbarLayout>
+          <SnackbarProvider />
+          <Component {...pageProps} />
+        </NavbarLayout>
+      </ModalToolkit.ModalProvider>
+    </InitRedux>
+  ) : (
+    <LandingPage />
   );
 }
 

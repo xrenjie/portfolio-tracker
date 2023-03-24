@@ -30,5 +30,6 @@ module.exports = {
     'react/jsx-props-no-spreading': 0,
     'no-param-reassign': 0,
     'no-use-before-define': 0,
+    'react/no-unknown-property': 0,
   },
 };
