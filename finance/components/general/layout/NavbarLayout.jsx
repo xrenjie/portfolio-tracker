@@ -48,6 +48,11 @@ export function NavbarLayout({ children }) {
         text: 'Statistics',
         link: '/stats/netWorth',
       });
+      // navItems.splice(3, 0, {
+      //   key: 'portfolio',
+      //   text: 'Portfolio',
+      //   link: '/portfolio',
+      // })
     }
 
     return navItems;

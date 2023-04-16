@@ -14,9 +14,33 @@ export default function Home() {
         <title>{process.env.NEXT_PUBLIC_APPNAME}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ExpenseDashboard />
+      {user ? 
+            <ExpenseDashboard />
+:
+<LandingPage />
+      }
     </>
   );
+}
+
+function LandingPage() {
+  return (
+    <div className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-h-screen tw-w-screen">
+      <h1 className="tw-text-4xl tw-font-bold tw-mb-4">
+        Welcome to {process.env.NEXT_PUBLIC_APPNAME}
+      </h1>
+      <p className="tw-text-xl tw-mb-4">
+        Please login to continue
+      </p>
+      <a
+        href="/api/auth/login"
+        className="tw-p-2 tw-bg-blue-500 tw-text-white tw-rounded tw-shadow tw-text-xl tw-font-bold tw-no-underline"
+      >
+        Login
+      </a>
+    </div>
+
+  )
 }
 
 export const getServerSideProps = () => ({ props: {} });
